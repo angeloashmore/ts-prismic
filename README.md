@@ -15,8 +15,8 @@ This means your codebase can be lean and purpose-built.
 
 ## Status
 
-[![npm version](https://img.shields.io/npm/v/gatsby-node-helpers?style=flat-square)](https://www.npmjs.com/package/gatsby-node-helpers)
-[![Build Status](https://img.shields.io/github/workflow/status/angeloashmore/gatsby-node-helpers/CI?style=flat-square)](https://github.com/angeloashmore/gatsby-node-helpers/actions?query=workflow%3ACI)
+[![npm version](https://img.shields.io/npm/v/ts-prismic?style=flat-square)](https://www.npmjs.com/package/ts-prismic)
+[![Build Status](https://img.shields.io/github/workflow/status/angeloashmore/ts-prismic/CI?style=flat-square)](https://github.com/angeloashmore/ts-prismic/actions?query=workflow%3ACI)
 
 ## Installation
 
