@@ -2,11 +2,11 @@ import { Ref, Language, Document } from './types'
 
 export interface Repository {
   refs: Ref[]
-  bookmarks: { [key: string]: string }
+  bookmarks: Record<string, string>
   languages: Language[]
-  types: { [key: string]: string }
+  types: Record<string, string>
   tags: string[]
-  // forms: { [key: string]: Form };
+  // forms: Record<string, Form>
   experiments: unknown
   oauth_initiate: string
   oauth_token: string
