@@ -1,3 +1,6 @@
-export * from './builders'
+export * from './buildQueryURL'
+export * from './buildRepositoryURL'
+export * from './defaultEndpoint'
+
 export * from './types'
-export * as Response from './types-responses'
+export * as Response from './types-response'

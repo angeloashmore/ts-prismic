@@ -106,41 +106,6 @@ type ValidParamName =
   | ValueOf<typeof RENAMED_PARAMS>
 
 /**
- * Get a repository's default Prismic REST API V2 endpoint.
- *
- * @param repositoryName Name of the repository.
- *
- * @returns The repository's default Prismic REST API V2 endpoint
- */
-export const defaultAPIV2Endpoint = (repositoryName: string): string =>
-  `https://${repositoryName}.cdn.prismic.io/api/v2`
-
-/**
- * Build a Prismic REST API V2 URL to request metadata about a repository. Meta
- * information about the repository includes data such as refs, languages, and
- * types.
- *
- * Type the JSON response with `APIReponse.`.
- *
- * @param endpoint Endpoint to the repository's REST API.
- * @param accessToken Access token for the repository.
- *
- * @returns URL that can be used to request meta information about the repository.
- */
-export const buildRepositoryURL = (
-  endpoint: string,
-  accessToken?: string,
-): string => {
-  const url = new URL(endpoint)
-
-  if (accessToken) {
-    url.searchParams.set('access_token', accessToken)
-  }
-
-  return url.toString()
-}
-
-/**
  * Build a Prismic REST API V2 URL to request documents from a repository. The
  * paginated response for this URL includes documents matching the parameters.
  *
