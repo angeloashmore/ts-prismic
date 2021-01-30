@@ -109,8 +109,8 @@ type ValidParamName =
  * Build a Prismic REST API V2 URL to request documents from a repository. The
  * paginated response for this URL includes documents matching the parameters.
  *
- * A ref is required to make a request. Use the result of `buildAPIURL` to
- * retrieve a list of available refs.
+ * A ref is required to make a request. Use the result of `buildRepositoryURL`
+ * to retrieve a list of available refs.
  *
  * Type the JSON response with `Response.Query`.
  *
