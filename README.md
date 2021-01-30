@@ -1,6 +1,6 @@
 # ts-prismic
 
-A light-weight interface to [Prismic](https://prismic.io/) REST API.
+A light-weight interface to [Prismic's REST API](https://prismic.io/).
 
 [![npm version](https://img.shields.io/npm/v/gatsby-node-helpers?style=flat-square)](https://www.npmjs.com/package/gatsby-node-helpers)
 [![Build Status](https://img.shields.io/github/workflow/status/angeloashmore/gatsby-node-helpers/CI?style=flat-square)](https://github.com/angeloashmore/gatsby-node-helpers/actions?query=workflow%3ACI)
