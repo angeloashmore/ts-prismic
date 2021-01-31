@@ -127,7 +127,7 @@ type ValidParamName =
 export const buildQueryURL = (
   endpoint: string,
   ref: string,
-  predicates?: string[] | null,
+  predicates?: string | string[] | null,
   params: Params = {},
 ): string => {
   const url = new URL(`${endpoint}/documents/search`)
@@ -135,8 +135,12 @@ export const buildQueryURL = (
   url.searchParams.set('ref', ref)
 
   if (predicates) {
+    if (typeof predicates === 'string') {
+      predicates = [predicates]
+    }
+
     for (const predicate of predicates) {
-      url.searchParams.set('q', `[${predicate}]`)
+      url.searchParams.append('q', `[${predicate}]`)
     }
   }
 
