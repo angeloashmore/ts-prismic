@@ -41,6 +41,39 @@ The following functions can be used to build an API request URL.
 - [`buildRepositoryURL`](./src/buildRepositoryURL.ts)
 - [`defaultEndpoint`](./src/defaultEndpoint.ts)
 
+### Predicate Builders
+
+The following predicate builders can be used with `buildQueryURL`.
+
+- [`at`](./src/predicate.ts)
+- [`not`](./src/predicate.ts)
+- [`any`](./src/predicate.ts)
+- [`in`](./src/predicate.ts)
+- [`fulltext`](./src/predicate.ts)
+- [`has`](./src/predicate.ts)
+- [`missing`](./src/predicate.ts)
+- [`similar`](./src/predicate.ts)
+- [`geopointNear`](./src/predicate.ts)
+- [`numberLessThan`](./src/predicate.ts)
+- [`numberGreaterThan`](./src/predicate.ts)
+- [`numberInRange`](./src/predicate.ts)
+- [`dateAfter`](./src/predicate.ts)
+- [`dateBefore`](./src/predicate.ts)
+- [`dateBetween`](./src/predicate.ts)
+- [`dateDayOfMonth`](./src/predicate.ts)
+- [`dateDayOfMonthAfter`](./src/predicate.ts)
+- [`dateDayOfMonthBefore`](./src/predicate.ts)
+- [`dateDayOfWeek`](./src/predicate.ts)
+- [`dateDayOfWeekAfter`](./src/predicate.ts)
+- [`dateDayOfWeekBefore`](./src/predicate.ts)
+- [`dateMonth`](./src/predicate.ts)
+- [`dateMonthAfter`](./src/predicate.ts)
+- [`dateMonthBefore`](./src/predicate.ts)
+- [`dateYear`](./src/predicate.ts)
+- [`dateHour`](./src/predicate.ts)
+- [`dateHourAfter`](./src/predicate.ts)
+- [`dateHourBefore`](./src/predicate.ts)
+
 ### Types
 
 The following types can be used to type API responses:
