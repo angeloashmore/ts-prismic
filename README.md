@@ -24,6 +24,51 @@ This means your codebase can be lean and purpose-built.
 npm install --save ts-prismic
 ```
 
+## Example Usage
+
+```typescript
+import * as prismic from 'ts-prismic'
+
+// Get the default API endpoint for a repository.
+const endpoint = prismic.defaultEndpoint('qwerty')
+// => https://qwerty.cdn.prismic.io/api/v2
+
+// Build a URL to request repository metadata.
+// The access token is optional.
+const repositoryURL = prismic.buildRepositoryURL(
+  endpoint,
+  process.env.PRISMIC_ACCESS_TOKEN,
+)
+// => https://qwerty.cdn.prismic.io/api/v2?access_token=PRISMIC_ACCESS_TOKEN
+
+// Get the master ref.
+const repository: prismic.Response.Repository = await fetch(
+  repositoryURL,
+).then((res) => res.json())
+const masterRef = repository.refs.find((ref) => ref.isMasterRef)
+
+// Query all documents.
+const params = { accessToken: process.env.PRISMIC_ACCESS_TOKEN }
+const allDocsURL = prismic.buildQueryURL(endpoint, masterRef.ref, null, params)
+const allDocs: prismic.Response.Query = await fetch(allDocsURL).then((res) =>
+  res.json(),
+)
+
+// Query with predicates.
+const someDocsURL = prismic.buildQueryURL(
+  endpoint,
+  masterRef.ref,
+  [
+    prismic.predicate.has('page.title'),
+    prismic.predicate.has('page.description'),
+  ],
+  params,
+)
+const someDocs: prismic.Response.Query = await fetch(someDocsURL).then((res) =>
+  res.json(),
+)
+```
+
 ## API
 
 All functions and types are documented in the source files using
