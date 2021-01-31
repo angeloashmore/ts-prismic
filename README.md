@@ -43,7 +43,8 @@ The following functions can be used to build an API request URL.
 
 ### Predicate Builders
 
-The following predicate builders can be used with `buildQueryURL`.
+The following functions can be used to build predicates for use with
+`buildQueryURL`.
 
 - [`at`](./src/predicate.ts)
 - [`not`](./src/predicate.ts)
