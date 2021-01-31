@@ -6,7 +6,8 @@ This package provides:
 
 - URL builders for the
   [REST API V2](https://prismic.io/docs/technologies/introduction-to-the-content-query-api)
-- Predicate builders for repository queries
+- [Predicate](https://prismic.io/docs/technologies/query-predicates-reference-rest-api)
+  builders for repository queries
 - TypeScript types for API responses
 
 This is not a batteries-included API client. Instead, this library provides you
