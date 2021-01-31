@@ -6,7 +6,7 @@ const formatValue = (
     : typeof value === 'string'
     ? `"${value}"`
     : value instanceof Date
-    ? value.toISOString()
+    ? `${value.getTime()}`
     : `${value}`
 
 const pathPredicate = (name: string) => (path: string): string =>
