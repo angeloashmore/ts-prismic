@@ -26,6 +26,13 @@ const pathWithArgsPredicate = <
       .map(formatValue)
       .join(', ')})]`
 
+const argsPredicate = <
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Args extends Array<any>
+>(
+  name: string,
+) => (...args: Args): string => `[${name}(${args.map(formatValue).join(', ')})]`
+
 /**
  * The `at` predicate checks that the path matches the described value exactly. It takes a single value for a field or an array (only for tags).
  *
@@ -86,7 +93,7 @@ export const missing = pathPredicate('missing')
  *
  * @see https://prismic.io/docs/technologies/query-predicates-reference-rest-api#similar
  */
-export const similar = pathPredicate('similar')
+export const similar = argsPredicate<[id: string, value: number]>('similar')
 
 /**
  * The `geopoint.near` predicate checks that the value in the path is within the radius of the given coordinates.
