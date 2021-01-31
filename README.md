@@ -26,47 +26,78 @@ npm install --save ts-prismic
 
 ## Example Usage
 
+**Note**: The following examples use [Got](https://github.com/sindresorhus/got)
+to make API requests, but any method can be used to make network request,
+including `fetch`.
+
+Get the default API endpoint for a repository:
+
 ```typescript
 import * as prismic from 'ts-prismic'
 
-// Get the default API endpoint for a repository.
 const endpoint = prismic.defaultEndpoint('qwerty')
-// => https://qwerty.cdn.prismic.io/api/v2
+```
 
-// Build a URL to request repository metadata.
-// The access token is optional.
-const repositoryURL = prismic.buildRepositoryURL(
-  endpoint,
-  process.env.PRISMIC_ACCESS_TOKEN,
-)
-// => https://qwerty.cdn.prismic.io/api/v2?access_token=PRISMIC_ACCESS_TOKEN
+Request a repository's metadata, such as refs and custom types (access token is
+optional).
 
-// Get the master ref.
-const repository: prismic.Response.Repository = await fetch(
-  repositoryURL,
-).then((res) => res.json())
+```typescript
+import * as prismic from 'ts-prismic'
+import got from 'got'
+
+const url = prismic.buildRepositoryURL(endpoint)
+const repository = (await got(url).json()) as prismic.Response.Repository
+```
+
+Get the master ref from the metadata:
+
+```typescript
 const masterRef = repository.refs.find((ref) => ref.isMasterRef)
+```
 
-// Query all documents.
-const params = { accessToken: process.env.PRISMIC_ACCESS_TOKEN }
-const allDocsURL = prismic.buildQueryURL(endpoint, masterRef.ref, null, params)
-const allDocs: prismic.Response.Query = await fetch(allDocsURL).then((res) =>
-  res.json(),
+Query all documents:
+
+```typescript
+import * as prismic from 'ts-prismic'
+import got from 'got'
+
+const url = prismic.buildQueryURL(
+  endpoint, // Defined in previous example
+  masterRef.ref, // Defined in previous example
 )
+const allDocs = (await got(url).json()) as prismic.Response.Query
+```
 
-// Query with predicates.
-const someDocsURL = prismic.buildQueryURL(
-  endpoint,
-  masterRef.ref,
+Query with predicates:
+
+```typescript
+import * as prismic from 'ts-prismic'
+import got from 'got'
+
+const url = prismic.buildQueryURL(
+  endpoint, // Defined in previous example
+  masterRef.ref, // Defined in previous example
   [
-    prismic.predicate.has('page.title'),
-    prismic.predicate.has('page.description'),
+    prismic.predicate.at('document.type', 'blog-post'),
+    prismic.predicate.has('my.blog-post.title'),
   ],
-  params,
 )
-const someDocs: prismic.Response.Query = await fetch(someDocsURL).then((res) =>
-  res.json(),
+const blogPosts = (await got(url).json()) as prismic.Response.Query
+```
+
+Query with parameters:
+
+```typescript
+import * as prismic from 'ts-prismic'
+import got from 'got'
+
+const url = prismic.buildQueryURL(
+  endpoint, // Defined in previous example
+  masterRef.ref, // Defined in previous example
+  prismic.predicate.at('document.type', 'blog-post'),
+  { orderings: 'my.blog-post.date', orderingsDirection: 'desc' },
 )
+const blogPosts = (await got(url).json()) as prismic.Response.Query
 ```
 
 ## API
