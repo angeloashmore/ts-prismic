@@ -6,6 +6,7 @@ This package provides:
 
 - URL builders for the
   [REST API V2](https://prismic.io/docs/technologies/introduction-to-the-content-query-api)
+- Predicate builders for repository queries
 - TypeScript types for API responses
 
 This is not a batteries-included API client. Instead, this library provides you
@@ -27,8 +28,7 @@ npm install --save ts-prismic
 ## Example Usage
 
 **Note**: The following examples use [Got](https://github.com/sindresorhus/got)
-to make API requests, but any method can be used to make network request,
-including `fetch`.
+to make API requests, but any method can be used, including `fetch`.
 
 Get the default API endpoint for a repository:
 
@@ -38,13 +38,13 @@ import * as prismic from 'ts-prismic'
 const endpoint = prismic.defaultEndpoint('qwerty')
 ```
 
-Request a repository's metadata, such as refs and custom types (access token is
-optional).
+Request a repository's metadata, such as refs and custom types.
 
 ```typescript
 import * as prismic from 'ts-prismic'
 import got from 'got'
 
+const endpoint = prismic.defaultEndpoint('qwerty')
 const url = prismic.buildRepositoryURL(endpoint)
 const repository = (await got(url).json()) as prismic.Response.Repository
 ```
