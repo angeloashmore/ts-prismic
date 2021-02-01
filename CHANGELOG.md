@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/angeloashmore/ts-prismic/compare/v0.2.0...v0.2.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* rename Params to QueryParams ([cba1252](https://github.com/angeloashmore/ts-prismic/commit/cba125220fb482abe015aa9ef7b3bbe030aafc68))
+
 ## [0.2.0](https://github.com/angeloashmore/ts-prismic/compare/v0.1.0...v0.2.0) (2021-01-31)
 
 
