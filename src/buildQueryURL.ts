@@ -5,7 +5,7 @@ import { ValueOf, IterableElement } from 'type-fest'
  *
  * @see https://prismic.io/docs/technologies/introduction-to-the-content-query-api
  */
-export interface Params {
+export interface QueryParams {
   /**
    * The secure token for accessing the API (only needed if your repository is set to private).
    *
@@ -100,7 +100,7 @@ const ARTIFICIAL_PARAMS = ['orderingsDirection'] as const
  */
 type ValidParamName =
   | Exclude<
-      keyof Params,
+      keyof QueryParams,
       keyof typeof RENAMED_PARAMS | IterableElement<typeof ARTIFICIAL_PARAMS>
     >
   | ValueOf<typeof RENAMED_PARAMS>
@@ -128,7 +128,7 @@ export const buildQueryURL = (
   endpoint: string,
   ref: string,
   predicates?: string | string[] | null,
-  params: Params = {},
+  params: QueryParams = {},
 ): string => {
   const url = new URL(`${endpoint}/documents/search`)
 
