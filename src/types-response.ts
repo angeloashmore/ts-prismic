@@ -14,7 +14,7 @@ export interface Repository {
   licence: string
 }
 
-export interface Query {
+export interface Query<TResults extends Document[] = Document[]> {
   page: number
   results_per_page: number
   results_size: number
@@ -22,5 +22,5 @@ export interface Query {
   total_pages: number
   next_page: string | null
   prev_page: string | null
-  results: Document[]
+  results: TResults
 }
