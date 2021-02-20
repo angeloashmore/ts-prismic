@@ -1,6 +1,6 @@
 {
   "name": "ts-prismic",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A light-weight interface to Prismic's REST API",
   "license": "MIT",
   "main": "./dist/ts-prismic.js",
