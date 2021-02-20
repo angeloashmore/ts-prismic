@@ -11,7 +11,7 @@ export interface Language {
   name: string
 }
 
-export interface Document<Data = unknown> {
+export interface Document<Data = Record<string, unknown>> {
   id: string
   uid?: string
   url?: string
